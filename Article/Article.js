@@ -107,8 +107,64 @@ const data = [
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  Step 4: Map over the data, creating a component for each object and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+function article(title, date, firstParagraph, secondParagraph, thirdParagraph,ebtn){
+  // creation
+  const articleDiv = document.createElement('div');
+  const titleH = document.createElement('h2');
+  const dateP = document.createElement('p');
+  const pOne = document.createElement('p');
+  const pTwo = document.createElement('p');
+  const pThree = document.createElement('p');
+  const eButton = document.createElement('span')
+
+  // class elements
+
+  articleDiv.classList.add('article');
+  dateP.classList.add('date');
+  eButton.classList.add('expandButton');
+
+
+
+  //Structure elements
+
+  articleDiv.appendChild(titleH);
+  articleDiv.appendChild(dateP);
+  articleDiv.appendChild(pOne);
+  articleDiv.appendChild(pTwo);
+  articleDiv.appendChild(pThree);
+  articleDiv.appendChild(eButton);
+
+   // content creation
+  titleH.textContent = title;
+  dateP.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
+  eButton.textContent = "Click"
+  eButton.addEventListener('click', (e) => {
+
+    articleDiv.classList.toggle('article-open');
+  });
+  
+  return articleDiv;
+}
+
+const articleParent = document.querySelector(".articles");
+
+data.forEach( item => {
+  articleParent.appendChild(article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));  
+})
+// const newData = data.map( item => {
+//   const newArticle = article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+//   return newArticle;
+// });
+
+// newData.forEach(item => {
+//   articleParent.appendChild(item);
+// })
