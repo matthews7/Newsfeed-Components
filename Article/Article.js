@@ -85,9 +85,19 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+
+
+  {
+  title: 'I am a Jedi',
+  date: 'December 4th, 2019',
+  firstParagraph: `I am number one `,
+
+  secondParagraph: `This is not the code you are looking for `,
+
+  thirdParagraph: `Nick I am your father`
   }
 ];
-
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
@@ -157,14 +167,14 @@ function article(title, date, firstParagraph, secondParagraph, thirdParagraph,eb
 
 const articleParent = document.querySelector(".articles");
 
-data.forEach( item => {
-  articleParent.appendChild(article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));  
-})
-// const newData = data.map( item => {
-//   const newArticle = article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
-//   return newArticle;
-// });
-
-// newData.forEach(item => {
-//   articleParent.appendChild(item);
+// data.forEach( item => {
+//   articleParent.appendChild(article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));  
 // })
+const newData = data.map( item => {
+  const newArticle = article(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+  return newArticle;
+});
+
+newData.forEach(item => {
+  articleParent.appendChild(item);
+})
