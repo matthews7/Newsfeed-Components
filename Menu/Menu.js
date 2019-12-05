@@ -33,8 +33,6 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
-<<<<<<< Updated upstream
-=======
 
 function mainMenu(){
 
@@ -66,4 +64,3 @@ function mainMenu(){
 let header = document.querySelector('.header')
 header.appendChild(mainMenu());
 
->>>>>>> Stashed changes
